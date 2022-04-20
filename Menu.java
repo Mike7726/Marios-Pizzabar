@@ -11,6 +11,9 @@ public class Menu {
     public void printMenu() {
         Map<Integer, Pizza> menu = new HashMap<>();
         menu.put(p1.getID(), p1);
+        menu.put(p2.getID(), p2);
+        menu.put(p3.getID(), p3);
+        menu.put(p4.getID(), p4);
         System.out.println(menu.get(1));
 
     }
