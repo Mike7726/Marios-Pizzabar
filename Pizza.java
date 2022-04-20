@@ -11,11 +11,13 @@ public class Pizza {
 
     public Integer getID() {
         return ID;
-
+    }
+    public int getPrice(){
+        return price;
     }
 
     @Override
     public String toString() {
-        return ID + ": " + description + "......." + price +'}';
+        return ID + ": " + description + "......." + price;
     }
 }
