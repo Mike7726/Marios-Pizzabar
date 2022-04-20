@@ -29,9 +29,11 @@ public class Ui {
         // tilføj fra queue til endofdetails liste med opsummering af cash
         // samleprisen
 
-for (int i = 0; i < newOrder.orders.size()
+for (int i = 0; i < newOrder.orders.size(); i++){
+ //total
+//hvad med nu test
+        }
     }
-
     public void endOfDayDetails() {
 
     }

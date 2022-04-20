@@ -5,7 +5,10 @@ public class Test {
 
         Menu newmenu = new Menu();
         newmenu.printMenu();
-
+        Ui newUi = new Ui();
+        System.out.println();
+        System.out.println();
+        newUi.addToQueue();
 
     }
 }
