@@ -1,3 +1,5 @@
+package mario;
+
 public class Pizza {
     private Integer ID;
     private String description;

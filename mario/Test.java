@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+package mario;
 
 public class Test {
     public static void main(String[] args) {

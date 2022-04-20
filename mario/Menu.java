@@ -1,3 +1,5 @@
+package mario;
+
 import java.util.HashMap;
 import java.util.Map;
 
