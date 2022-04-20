@@ -1,14 +1,21 @@
 public class Pizza {
-    private String ID;
+    private Integer ID;
     private String description;
     private int price;
 
-    Pizza(String ID, String description, int price){
+    Pizza(int ID, String description, int price) {
         this.ID = ID;
         this.description = description;
         this.price = price;
     }
-    public String getID(){
+
+    public Integer getID() {
         return ID;
+
+    }
+
+    @Override
+    public String toString() {
+        return ID + ": " + description + "......." + price +'}';
     }
 }
