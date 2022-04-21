@@ -44,7 +44,8 @@ public class Ui {
     public void printMenu() {
         theMenu.printMenu();
     }
-    public void commandHelp(){
+
+    public void commandHelp() {
         System.out.println(" M: See the menu" +
                 "\n O: Add order" +
                 "\n Q: See order queue" +
@@ -57,17 +58,19 @@ public class Ui {
     }
 
     public void addToQueue() {
+        boolean endOrder = false;
         System.out.println("Enter pizza ID: ");
-
-        // TODO: 21/04/2022 Make sure only input is integers
-        int add = in.nextInt();
-        in.nextLine();
-        if(add >= 1 && add < theMenu.menu.size()){
-            newOrder.addPizza(theMenu.menu.get(add));
-            printQueue();
+        while (!endOrder) {
+            String add = in.nextLine();
+             if (add.equals("e"))
+                endOrder = true;
+            else if (theMenu.menu.get(add) == null)
+                System.out.println("Sorry, no such pizza exist");
+            else {
+                newOrder.addPizza(theMenu.menu.get(add));
+                printQueue();
+            }
         }
-        else
-            System.out.println("Sorry, no such pizza exists");
     }
 
     public void printLastOrder() {
@@ -79,7 +82,8 @@ public class Ui {
         for (int i = 0; i < newOrder.orders.size(); i++)
             System.out.println(newOrder.orders.get(i));
     }
-    public void printFinishedOrders(){
+
+    public void printFinishedOrders() {
         int totalPrice = 0;
         System.out.println("Finished orders: ");
         for (int i = 0; i < finished.list.size(); i++) {

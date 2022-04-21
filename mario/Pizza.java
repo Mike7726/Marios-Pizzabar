@@ -1,17 +1,17 @@
 package mario;
 
 public class Pizza {
-    private Integer ID;
+    private String ID;
     private String description;
     private int price;
 
-    Pizza(int ID, String description, int price) {
+    Pizza(String ID, String description, int price) {
         this.ID = ID;
         this.description = description;
         this.price = price;
     }
 
-    public Integer getID() {
+    public String getID() {
         return ID;
     }
     public int getPrice(){
