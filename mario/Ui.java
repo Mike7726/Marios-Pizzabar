@@ -9,34 +9,19 @@ public class Ui {
     FinishedOrders finished = new FinishedOrders();
     public boolean running = true;
 
+
     public void userInput() {
         System.out.println("Enter command: ");
         String command = in.nextLine().toLowerCase();
         switch (command) {
-            case "m":
-                printMenu();
-                break;
-            case "o":
-                addToQueue();
-                break;
-            case "q":
-                printQueue();
-                break;
-            case "e":
-                running = false;
-                break;
-            case "d":
-                endOrder();
-                break;
-            case "h":
-                commandHelp();
-                break;
-            case "f":
-                printFinishedOrders();
-                break;
-            default:
-                System.out.println("Sorry, Command not known. Try again: ");
-                break;
+            case "m", "menu" -> printMenu();
+            case "o", "order" -> addToQueue();
+            case "q", "queue" -> printQueue();
+            case "e", "exit" -> running = false;
+            case "d", "done" -> endOrder();
+            case "h", "help" -> commandHelp();
+            case "f", "finished" -> printFinishedOrders();
+            default -> System.out.println("Sorry, Command not known. Try again: ");
         }
     }
 

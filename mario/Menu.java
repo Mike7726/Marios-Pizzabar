@@ -39,26 +39,9 @@ public class Menu {
     Pizza p14 = new Pizza("14", "Carbona", 61);
     Pizza p15 = new Pizza("15", "Cacciatore", 61);
 
-    public Menu(){
-        menu.put(p1.getID(), p1);
-        menu.put(p2.getID(), p2);
-        menu.put(p3.getID(), p3);
-        menu.put(p4.getID(), p4);
-        menu.put(p5.getID(), p5);
-        menu.put(p6.getID(), p6);
-        menu.put(p7.getID(), p7);
-        menu.put(p8.getID(), p8);
-        menu.put(p9.getID(), p9);
-        menu.put(p10.getID(), p10);
-        menu.put(p11.getID(), p11);
-        menu.put(p12.getID(), p12);
-        menu.put(p13.getID(), p13);
-        menu.put(p14.getID(), p14);
-        menu.put(p15.getID(), p15);
-    }
+
 
     public void printMenu() {
-
         for (int i = 1; i < menu.size()+1; i++) {
             System.out.println(menu.get(i));
         }
