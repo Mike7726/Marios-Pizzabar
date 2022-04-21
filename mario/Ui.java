@@ -6,6 +6,7 @@ public class Ui {
     Scanner in = new Scanner(System.in);
     Menu theMenu = new Menu();
     Order newOrder = new Order();
+    FinishedOrders finished = new FinishedOrders();
     public boolean running = true;
 
     public void userInput() {
@@ -24,8 +25,14 @@ public class Ui {
             case "e":
                 running = false;
                 break;
+            case "d":
+                endOrder();
+                break;
             case "h":
                 commandHelp();
+                break;
+            case "f":
+                printFinishedOrders();
                 break;
             default:
                 System.out.println("Sorry, Command not known. Try again: ");
@@ -42,7 +49,9 @@ public class Ui {
                 "\n O: Add order" +
                 "\n Q: See order queue" +
                 "\n E: Exit" +
-                "\n H: Get help");
+                "\n H: Get help" +
+                "\n D: Mark next order as done" +
+                "\n F: see list of finished orders");
 
     }
 
@@ -65,11 +74,22 @@ public class Ui {
     }
 
     public void printQueue() {
+        System.out.println("Order queue: ");
         for (int i = 0; i < newOrder.orders.size(); i++)
             System.out.println(newOrder.orders.get(i));
     }
+    public void printFinishedOrders(){
+        System.out.println("Finished orders: ");
+        for (int i = 0; i < finished.list.size(); i++) {
+            System.out.println(finished.list.get(i));
+        }
+    }
 
     public void endOrder() {
+        finished.addPizza(newOrder.orders.get(0));
+        newOrder.orders.remove(0);
+        printFinishedOrders();
+        /*
         // tilføj fra queue til endofdetails liste med opsummering af cash
         // samleprisen
         int total = 0;
@@ -78,6 +98,7 @@ public class Ui {
 
         }
         System.out.println(total);
+        */
     }
 
     public void endOfDayDetails() {
