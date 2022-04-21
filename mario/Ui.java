@@ -80,10 +80,15 @@ public class Ui {
             System.out.println(newOrder.orders.get(i));
     }
     public void printFinishedOrders(){
+        int tmp = 0;
         System.out.println("Finished orders: ");
         for (int i = 0; i < finished.list.size(); i++) {
             System.out.println(finished.list.get(i));
         }
+        for (int i = 0; i < finished.list.size(); i++) {
+            tmp += finished.list.get(i).getPrice();
+        }
+        System.out.println("Total income: " + tmp + "\n");
     }
 
     public void endOrder() {
