@@ -7,12 +7,14 @@ public class Ui {
     Menu theMenu = new Menu();
     Order newOrder = new Order();
 
-    public void userInput(){
+    public void userInput() {
         System.out.println("enter command: ");
         String command = in.nextLine();
-        switch(command){
-            case "m": printMenu();
-            case "o": addToQueue();
+        switch (command) {
+            case "m":
+                printMenu();
+            case "o":
+                addToQueue();
         }
     }
 
@@ -23,25 +25,19 @@ public class Ui {
 
     public void addToQueue() {
         System.out.println("Enter pizza ID: ");
+
         int add = in.nextInt();
-        switch (add){
-            case 1:  newOrder.addPizza(theMenu.p1);
-
-        }
-
-        newOrder.addPizza(theMenu.p1);
-        newOrder.addPizza(theMenu.p2);
-        newOrder.addPizza(theMenu.p13);
-        for (int i = 0; i < newOrder.orders.size(); i++)
-            System.out.println(newOrder.orders.get(i));
+        newOrder.addPizza(theMenu.menu.get(add));
 
     }
+
     public void printLastOrder() {
 
     }
 
     public void printQueue() {
-
+        for (int i = 0; i < newOrder.orders.size(); i++)
+            System.out.println(newOrder.orders.get(i));
     }
 
     public void endOrder() {
@@ -54,6 +50,7 @@ public class Ui {
         }
         System.out.println(total);
     }
+
     public void endOfDayDetails() {
 
     }

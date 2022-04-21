@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Menu {
+        Map<Integer, Pizza> menu = new HashMap<>();
     Pizza p1 = new Pizza(1, "Margarita", 55);
     Pizza p2 = new Pizza(2, "Pepperoni", 55);
     Pizza p3 = new Pizza(3, "Hawaii", 55);
@@ -20,8 +21,7 @@ public class Menu {
     Pizza p14 = new Pizza(14, "Carbona", 61);
     Pizza p15 = new Pizza(15, "Cacciatore", 61);
 
-    public void printMenu() {
-        Map<Integer, Pizza> menu = new HashMap<>();
+    public Menu(){
         menu.put(p1.getID(), p1);
         menu.put(p2.getID(), p2);
         menu.put(p3.getID(), p3);
@@ -37,6 +37,10 @@ public class Menu {
         menu.put(p13.getID(), p13);
         menu.put(p14.getID(), p14);
         menu.put(p15.getID(), p15);
+    }
+
+    public void printMenu() {
+
         for (int i = 1; i < menu.size()+1; i++) {
             System.out.println(menu.get(i));
         }
