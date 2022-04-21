@@ -6,15 +6,27 @@ public class Ui {
     Scanner in = new Scanner(System.in);
     Menu theMenu = new Menu();
     Order newOrder = new Order();
+    public boolean running = true;
 
     public void userInput() {
         System.out.println("enter command: ");
-        String command = in.nextLine();
+        String command = in.nextLine().toLowerCase();
         switch (command) {
             case "m":
                 printMenu();
+                break;
             case "o":
                 addToQueue();
+                break;
+            case "q":
+                printQueue();
+                break;
+            case "e":
+                running = false;
+                break;
+            default:
+                System.out.println("Sorry, Command not known. Try again: ");
+                break;
         }
     }
 
@@ -26,9 +38,15 @@ public class Ui {
     public void addToQueue() {
         System.out.println("Enter pizza ID: ");
 
+        // TODO: 21/04/2022 Make sure only input is integers
         int add = in.nextInt();
-        newOrder.addPizza(theMenu.menu.get(add));
-
+        in.nextLine();
+        if(add >= 1 && add < theMenu.menu.size()){
+            newOrder.addPizza(theMenu.menu.get(add));
+            printQueue();
+        }
+        else
+            System.out.println("Sorry, no such pizza exists");
     }
 
     public void printLastOrder() {
