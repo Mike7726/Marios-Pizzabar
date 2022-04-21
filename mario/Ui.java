@@ -24,6 +24,9 @@ public class Ui {
             case "e":
                 running = false;
                 break;
+            case "h":
+                commandHelp();
+                break;
             default:
                 System.out.println("Sorry, Command not known. Try again: ");
                 break;
@@ -33,6 +36,14 @@ public class Ui {
 
     public void printMenu() {
         theMenu.printMenu();
+    }
+    public void commandHelp(){
+        System.out.println(" M: See the menu" +
+                "\n O: Add order" +
+                "\n Q: See order queue" +
+                "\n E: Exit" +
+                "\n H: Get help");
+
     }
 
     public void addToQueue() {
