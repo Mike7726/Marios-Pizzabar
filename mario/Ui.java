@@ -10,7 +10,7 @@ public class Ui {
     public boolean running = true;
 
     public void userInput() {
-        System.out.println("enter command: ");
+        System.out.println("Enter command: ");
         String command = in.nextLine().toLowerCase();
         switch (command) {
             case "m":
@@ -51,7 +51,8 @@ public class Ui {
                 "\n E: Exit" +
                 "\n H: Get help" +
                 "\n D: Mark next order as done" +
-                "\n F: see list of finished orders");
+                "\n F: see list of finished orders" +
+                "\n");
 
     }
 
