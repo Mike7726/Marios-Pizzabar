@@ -15,6 +15,7 @@ public class POS {
     while (!endOrder) {
       String add = in.nextLine();
       if (add.equals("e")) {
+        //CHANGES HERE!!!
         newOrder.currentOrder(newOrder.orders);
         newOrder.printCurrentOrder();
         endOrder = true;
