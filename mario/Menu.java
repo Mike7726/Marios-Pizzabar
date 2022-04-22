@@ -42,8 +42,10 @@ public class Menu {
 
 
     public void printMenu() {
-        for (int i = 1; i < menu.size()+1; i++) {
-            System.out.println(menu.get(i));
+        for (Integer i = 1; i < menu.size()+1; i++) {
+            //Casts iterable (i) to string (j) because hashkey is a String
+            String j = i.toString();
+            System.out.println(menu.get(j));
         }
 
     }
