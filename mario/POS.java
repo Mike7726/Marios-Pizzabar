@@ -16,7 +16,7 @@ public class POS {
       String add = in.nextLine();
       if (add.equals("e")) {
         newOrder.currentOrder(newOrder.orders);
-        newOrder.printCurrentOrder();
+        newOrder.printCurrentOrderPrice();
         endOrder = true;
       } else if (theMenu.menu.get(add) == null)
         System.out.println("Sorry, no such pizza exist");
