@@ -1,6 +1,15 @@
 package mario;
 
 public class Controller {
+   private boolean running = true;
+
+   public void getRunning() {
+   running = this.running;
+   }
+
+    public boolean setRunning(boolean running){
+    return running;
+   }
 
     public static void main(String[] args) {
         Ui ui = new Ui();
@@ -11,4 +20,4 @@ public class Controller {
          //   ui.userInput();
         }
     }
-}
+
