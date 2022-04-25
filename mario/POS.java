@@ -15,9 +15,8 @@ public class POS {
     while (!endOrder) {
       String add = in.nextLine();
       if (add.equals("e")) {
-        //CHANGES HERE!!!
         newOrder.currentOrder(newOrder.orders);
-        newOrder.printCurrentOrder();
+        newOrder.printCurrentOrderPrice();
         endOrder = true;
       } else if (theMenu.menu.get(add) == null)
         System.out.println("Sorry, no such pizza exist");
@@ -27,7 +26,6 @@ public class POS {
       }
     }
   }
-
   public void printQueue() {
     System.out.println("Order queue: ");
     for (int i = 0; i < newOrder.orders.size(); i++)
@@ -47,20 +45,14 @@ public class POS {
   }
 
   public void endOrder() {
-    // TODO: 22-04-2022 add if statement that checks if orders list is not empty 
+    if(newOrder.orders.size() != 0){
     finished.addPizza(newOrder.orders.get(0));
     newOrder.orders.remove(0);
     printFinishedOrders();
-        /*
-        // tilføj fra queue til endofdetails liste med opsummering af cash
-        // samleprisen
-        int total = 0;
-        for (int i = 0; i < newOrder.orders.size(); i++) {
-            total += newOrder.orders.get(i).getPrice();
+    }
+    else System.out.println("No pizza in queue");
 
-        }
-        System.out.println(total);
-        */
+
   }
 
   public void endOfDayDetails() {
