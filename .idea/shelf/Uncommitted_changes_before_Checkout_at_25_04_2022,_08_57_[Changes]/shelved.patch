@@ -1,0 +1,78 @@
+Index: mario/Order.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mario;\n\nimport java.util.ArrayList;\n\npublic class Order {\n    ArrayList<Pizza> orders = new ArrayList<>();\n    ArrayList<ArrayList<Pizza>> current = new ArrayList<>();\n\n    public void addPizza(Pizza pizza) {\n        orders.add(pizza);\n    }\n\n    public void currentOrder(ArrayList<Pizza> current) {\n        current.addAll(orders);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/mario/Order.java b/mario/Order.java
+--- a/mario/Order.java	(revision eb497dfdf23ab2b260bb87757f17920fedd75882)
++++ b/mario/Order.java	(date 1650869430239)
+@@ -6,11 +6,21 @@
+     ArrayList<Pizza> orders = new ArrayList<>();
+     ArrayList<ArrayList<Pizza>> current = new ArrayList<>();
+ 
+-    public void addPizza(Pizza pizza) {
++    public void addPizzaToOrder(Pizza pizza) {
+         orders.add(pizza);
+     }
+ 
+-    public void currentOrder(ArrayList<Pizza> current) {
+-        current.addAll(orders);
++    public void currentOrder(ArrayList<Pizza> a) {
++        current.add(orders);
++        String endOfOrder = current.toString().replace("[","")
++                .replace("]","").replace(",","\n").trim();
++        System.out.println(endOfOrder);
++        current.clear();
+     }
+-}
++    public void printCurrentOrderPrice() {
++        int total = 0;
++        for (int i = 0; i < orders.size(); i++)
++            total += orders.get(i).getPrice();
++        System.out.println("Total Price: " + total);
++    }
++}
+\ No newline at end of file
+Index: mario/Ui.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mario;\n\nimport java.util.Scanner;\n\npublic class Ui {\n    Scanner in = new Scanner(System.in);\n    Menu theMenu = new Menu();\n    Order newOrder = new Order();\n    FinishedOrders finished = new FinishedOrders();\n    public boolean running = true;\n\n\n    public void userInput() {\n        System.out.println(\"Enter command: \");\n        String command = in.nextLine().toLowerCase();\n        switch (command) {\n            case \"m\", \"menu\" -> printMenu();\n            case \"o\", \"order\" -> addToQueue();\n            case \"q\", \"queue\" -> printQueue();\n            case \"e\", \"exit\" -> running = false;\n            case \"d\", \"done\" -> endOrder();\n            case \"h\", \"help\" -> commandHelp();\n            case \"f\", \"finished\" -> printFinishedOrders();\n            default -> System.out.println(\"Sorry, Command not known. Try again: \");\n        }\n    }\n\n\n    public void printMenu() {\n        theMenu.printMenu();\n    }\n\n    public void commandHelp() {\n        System.out.println(\" M: See the menu\" +\n                \"\\n O: Add order\" +\n                \"\\n Q: See order queue\" +\n                \"\\n E: Exit\" +\n                \"\\n H: Get help\" +\n                \"\\n D: Mark next order as done\" +\n                \"\\n F: see list of finished orders\" +\n                \"\\n\");\n\n    }\n\n    public void addToQueue() {\n        boolean endOrder = false;\n        System.out.println(\"Enter pizza ID: \");\n        while (!endOrder) {\n            String add = in.nextLine();\n             if (add.equals(\"e\"))\n                endOrder = true;\n            else if (theMenu.menu.get(add) == null)\n                System.out.println(\"Sorry, no such pizza exist\");\n            else {\n                newOrder.addPizza(theMenu.menu.get(add));\n                printQueue();\n            }\n        }\n    }\n\n    public void printLastOrder() {\n\n    }\n\n    public void printQueue() {\n        System.out.println(\"Order queue: \");\n        for (int i = 0; i < newOrder.orders.size(); i++)\n            System.out.println(newOrder.orders.get(i));\n    }\n\n    public void printFinishedOrders() {\n        int totalPrice = 0;\n        System.out.println(\"Finished orders: \");\n        for (int i = 0; i < finished.list.size(); i++) {\n            System.out.println(finished.list.get(i));\n        }\n        for (int i = 0; i < finished.list.size(); i++) {\n            totalPrice += finished.list.get(i).getPrice();\n        }\n        System.out.println(\"Total income: \" + totalPrice + \"\\n\");\n    }\n\n    public void endOrder() {\n        finished.addPizza(newOrder.orders.get(0));\n        newOrder.orders.remove(0);\n        printFinishedOrders();\n        /*\n        // tilføj fra queue til endofdetails liste med opsummering af cash\n        // samleprisen\n        int total = 0;\n        for (int i = 0; i < newOrder.orders.size(); i++) {\n            total += newOrder.orders.get(i).getPrice();\n\n        }\n        System.out.println(total);\n        */\n    }\n\n    public void endOfDayDetails() {\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/mario/Ui.java b/mario/Ui.java
+--- a/mario/Ui.java	(revision eb497dfdf23ab2b260bb87757f17920fedd75882)
++++ b/mario/Ui.java	(date 1650869805005)
+@@ -47,12 +47,14 @@
+         System.out.println("Enter pizza ID: ");
+         while (!endOrder) {
+             String add = in.nextLine();
+-             if (add.equals("e"))
++            if (add.equals("e")) {
++                newOrder.currentOrder(newOrder.orders);
++                newOrder.printCurrentOrderPrice();
+                 endOrder = true;
+-            else if (theMenu.menu.get(add) == null)
++            } else if (theMenu.menu.get(add) == null)
+                 System.out.println("Sorry, no such pizza exist");
+             else {
+-                newOrder.addPizza(theMenu.menu.get(add));
++                newOrder.addPizzaToOrder(theMenu.menu.get(add));
+                 printQueue();
+             }
+         }
+@@ -81,9 +83,12 @@
+     }
+ 
+     public void endOrder() {
++        if(newOrder.orders.get(0) != null){
+         finished.addPizza(newOrder.orders.get(0));
+         newOrder.orders.remove(0);
+         printFinishedOrders();
++        }
++        else System.out.println("No Pizza on queue");
+         /*
+         // tilføj fra queue til endofdetails liste med opsummering af cash
+         // samleprisen
