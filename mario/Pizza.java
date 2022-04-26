@@ -25,7 +25,7 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return ID + ": " + description + "......." + price;
+        return (ID + ": " + description + "......." + price);
     }
 }
 

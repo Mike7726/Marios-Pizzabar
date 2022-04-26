@@ -2,20 +2,18 @@ package mario;
 
 import java.util.Scanner;
 
-public class    Ui {
+public class Ui {
     Scanner in = new Scanner(System.in);
     Menu theMenu = new Menu();
 
     public String userInput() {
         System.out.println("Enter command: ");
-        String command = in.nextLine().toLowerCase();
-
-    return command;
+        return in.nextLine().toLowerCase();
     }
+
     public void printMenu() {
         theMenu.printMenu();
     }
-
     public void commandHelp() {
         System.out.println(" M: See the menu" +
                 "\n O: Add order" +
@@ -25,7 +23,6 @@ public class    Ui {
                 "\n D: Mark next order as done" +
                 "\n F: see list of finished orders" +
                 "\n");
-
     }
     public void printLastOrder() {
     }

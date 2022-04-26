@@ -21,7 +21,6 @@ public class Menu {
     menu.put(p14.getID(), p14);
     menu.put(p15.getID(), p15);
   }
-
   Map<String, Pizza> menu = new HashMap<>();
   Pizza p1 = new Pizza("1", "Margarita: Tomatsauce, ost og oregano", 55);
   Pizza p2 = new Pizza("2", "Amerikaner: Tomatsauce, ost, oksefars og oregano", 55);
