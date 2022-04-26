@@ -2,7 +2,7 @@ package mario;
 
 import java.util.Scanner;
 
-public class Ui {
+public class    Ui {
     Scanner in = new Scanner(System.in);
     Menu theMenu = new Menu();
 
