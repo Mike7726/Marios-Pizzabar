@@ -92,7 +92,7 @@ public class POS {
     int total = 0;
     for (int i = 0; i < currentPizzaOrder.size(); i++)
       total += currentPizzaOrder.get(i).getPrice();
-    System.out.println("Total Price: " + total);
+    System.out.println("\nTotal Price: " + total);
   }
 
   public static class FinishedOrders {

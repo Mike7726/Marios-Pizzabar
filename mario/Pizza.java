@@ -14,7 +14,8 @@ public class Pizza {
     public String getID() {
         return ID;
     }
-    public int getPrice(){
+
+    public int getPrice() {
         return price;
     }
 
