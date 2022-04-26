@@ -3,13 +3,16 @@ package mario;
 import java.util.ArrayList;
 
 public class POS {
-  Ui ui = new Ui();
-  Controller control = new Controller();
-  Menu theMenu = new Menu();
-  private ArrayList<Pizza> ordersQueue = new ArrayList<>();
-  private ArrayList<Pizza> currentPizzaOrder = new ArrayList<>();
-  private ArrayList<ArrayList<Pizza>> currentOrder = new ArrayList<>();
-  POS.FinishedOrders finished = new POS.FinishedOrders();
+    Ui ui = new Ui();
+    Controller control = new Controller();
+    Menu theMenu = new Menu();
+    private ArrayList<Pizza> ordersQueue = new ArrayList<>();
+    private ArrayList<Pizza> currentPizzaOrder = new ArrayList<>();
+    private ArrayList<ArrayList<Pizza>> currentOrder = new ArrayList<>();
+    POS.FinishedOrders finished = new POS.FinishedOrders();
+    Date date = new Date();
+    Timestamp ts = new Timestamp(date.getTime());
+    SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
 
   public void commands() {
     while(control.getRunning()) {
@@ -47,11 +50,11 @@ public class POS {
     }
   }
 
-  private void printQueue() {
-    System.out.println("Order queue: ");
-    for (int i = 0; i < ordersQueue.size(); i++)
-      System.out.println(ordersQueue.get(i));
-  }
+    private void printQueue() {
+        System.out.println("Order queue: ");
+        for (int i = 0; i < ordersQueue.size(); i++)
+            System.out.println(ordersQueue.get(i).toString() + "\n" + formatter.format(ts));
+    }
 
   private void printFinishedOrders() {
     int totalPrice = 0;
