@@ -12,17 +12,19 @@ public class POS {
   POS.FinishedOrders finished = new POS.FinishedOrders();
 
   public void commands() {
-    switch (ui.userInput()) {
-      case "m", "menu" -> ui.printMenu();
-      case "o", "order" -> addToQueue();
-      case "q", "queue" -> printQueue();
-      case "e", "exit" -> control.setRunning(false);
-      case "d", "done" -> endOrder();
-      case "h", "help" -> ui.commandHelp();
-      case "f", "finished" -> printFinishedOrders();
-      default -> System.out.println("Sorry, Command not known. Try again: ");
+    while(control.getRunning()) {
+      switch (ui.userInput()) {
+        case "m", "menu" -> ui.printMenu();
+        case "o", "order" -> addToQueue();
+        case "q", "queue" -> printQueue();
+        case "e", "exit" -> control.setRunning(false);
+        case "d", "done" -> endOrder();
+        case "h", "help" -> ui.commandHelp();
+        case "f", "finished" -> printFinishedOrders();
+        default -> System.out.println("Sorry, Command not known. Try again: ");
+      }
+      commands();
     }
-    commands();
   }
 
 
@@ -80,9 +82,9 @@ public class POS {
   }
 
   public void currentOrder(ArrayList<Pizza> a) {
-    String endOfOrder = currentPizzaOrder.toString().replace("[", "")
-        .replace("]", "").replace(",", "\n").trim();
-    System.out.println(endOfOrder);
+    for(int i = 0; i < a.size(); i++) {
+      a.get(i).printPizza();}
+
     currentOrder.clear();
   }
 

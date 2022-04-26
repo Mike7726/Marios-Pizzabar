@@ -18,6 +18,10 @@ public class Pizza {
         return price;
     }
 
+    public void printPizza() {
+        System.out.printf("%s: %s ........%d\n", ID, description, price);
+    }
+
     @Override
     public String toString() {
         return ID + ": " + description + "......." + price;

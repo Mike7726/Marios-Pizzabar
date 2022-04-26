@@ -23,21 +23,21 @@ public class Menu {
   }
 
   Map<String, Pizza> menu = new HashMap<>();
-  Pizza p1 = new Pizza("1", "Margarita", 55);
-  Pizza p2 = new Pizza("2", "Pepperoni", 55);
-  Pizza p3 = new Pizza("3", "Hawaii", 55);
-  Pizza p4 = new Pizza("4", "Mascarpone", 55);
-  Pizza p5 = new Pizza("5", "Vesuvio", 55);
-  Pizza p6 = new Pizza("6", "Amerikaner", 57);
-  Pizza p7 = new Pizza("7", "Capricciosa", 57);
-  Pizza p8 = new Pizza("8", "La Blissola", 57);
-  Pizza p9 = new Pizza("9", "Venezia", 57);
-  Pizza p10 = new Pizza("10", "Mafia", 57);
-  Pizza p11 = new Pizza("11", "Victoria", 61);
-  Pizza p12 = new Pizza("12", "Silvia", 61);
-  Pizza p13 = new Pizza("13", "Dennis", 61);
-  Pizza p14 = new Pizza("14", "Carbona", 61);
-  Pizza p15 = new Pizza("15", "Cacciatore", 61);
+  Pizza p1 = new Pizza("1", "Margarita: Tomatsauce, ost og oregano", 55);
+  Pizza p2 = new Pizza("2", "Amerikaner: Tomatsauce, ost, oksefars og oregano", 55);
+  Pizza p3 = new Pizza("3", "Cacciatore: Tomatsauce, ost, pepperoni og oregano ", 55);
+  Pizza p4 = new Pizza("4", "Carbona: Tomatsauce, ost, kødsauce, spaghetti og cocktailpølser", 55);
+  Pizza p5 = new Pizza("5", "Dennis: Tomatsauce, ost, skinke, pepperoni og oregano", 55);
+  Pizza p6 = new Pizza("6", "Bertil: Tomatsauce, ost, bacon og oregano", 57);
+  Pizza p7 = new Pizza("7", "Silvia: Tomatsauce, ost, pepperoni, rødpeber, løg og oliven", 57);
+  Pizza p8 = new Pizza("8", "Victoria: Tomatsauce, ost, skinke, ananas, champignon, løg og oregano", 57);
+  Pizza p9 = new Pizza("9", "Toronfo: Tomatsauce, ost, skinke, bacon, kebab, chili og oregano", 57);
+  Pizza p10 = new Pizza("10", "Capricciosa: Tomatsauce, ost, skinke, champignon og oregano", 57);
+  Pizza p11 = new Pizza("11", "Hawaii: Tomatsauce, ost, skinke, ananas og oregano", 61);
+  Pizza p12 = new Pizza("12", "La Blissola: Tomatsauce, ost, skinke, rejer og oregano", 61);
+  Pizza p13 = new Pizza("13", "Venezia: Tomatsauce, ost, skinke, bacon og oregano", 61);
+  Pizza p14 = new Pizza("14", "Mafia: Tomatsauce, ost, pepperoni, bacon, løg og oregano", 61);
+  Pizza p15 = new Pizza("15", "Salatpizza: Tomatsauce, ost, salat, kebab, dressing og oregano", 61);
 
 
   public void printMenu() {

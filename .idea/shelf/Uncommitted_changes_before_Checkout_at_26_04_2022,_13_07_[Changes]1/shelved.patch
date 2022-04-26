@@ -1,0 +1,21 @@
+Index: mario/Controller.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mario;\n\npublic class Controller {\n   private boolean running = true;\n\n   public void getRunning() {\n   running = this.running;\n   }\n\n    public boolean setRunning(boolean running){\n    return running;\n   }\n\n    public static void main(String[] args) {\n        Ui ui = new Ui();\n        ui.commandHelp();\n        POS pointOfSales = new POS();\n        pointOfSales.commands();\n       // while (true) { //make private + add getter\n         //   ui.userInput();\n        }\n    }\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/mario/Controller.java b/mario/Controller.java
+--- a/mario/Controller.java	
++++ b/mario/Controller.java	
+@@ -3,8 +3,8 @@
+ public class Controller {
+    private boolean running = true;
+ 
+-   public void getRunning() {
+-   running = this.running;
++   public boolean getRunning() {
++   return this.running;
+    }
+ 
+     public boolean setRunning(boolean running){
